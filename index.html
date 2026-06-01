@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Innocent Philibert | ICT Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0f0e0c;--ink2:#4a4845;--ink3:#8a8784;
+  --bg:#f5f2ed;--bg2:#ece8e1;--bg3:#ffffff;
+  --border:rgba(0,0,0,0.09);
+  --accent:#1a1a1a;
+  --r:12px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden}
+
+/* NAV */
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 2.5rem;background:var(--bg3);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;letter-spacing:-0.5px}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--ink2);font-size:0.85rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-gh{display:flex;align-items:center;gap:0.4rem;background:var(--ink);color:#fff;padding:0.45rem 1rem;border-radius:100px;font-size:0.8rem;font-weight:500;text-decoration:none;transition:opacity .2s}
+.nav-gh:hover{opacity:0.8}
+.nav-gh svg{width:15px;height:15px}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr 420px;min-height:88vh;overflow:hidden}
+.hero-left{padding:5rem 3.5rem;display:flex;flex-direction:column;justify-content:center;gap:1.6rem}
+.hero-tag{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.72rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);border:1px solid var(--border);padding:0.35rem 0.9rem;border-radius:100px;width:fit-content}
+.dot{width:7px;height:7px;border-radius:50%;background:#22c55e;display:inline-block}
+h1{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,4.5vw,4.2rem);font-weight:800;line-height:1.02;letter-spacing:-2px}
+h1 em{font-style:normal;color:var(--ink3)}
+.hero-subtitle{font-size:1rem;color:var(--ink2);font-weight:400;letter-spacing:0.2px}
+.hero-subtitle span{color:var(--ink);font-weight:500}
+.hero-desc{font-size:0.95rem;color:var(--ink2);line-height:1.75;max-width:460px;font-weight:300}
+.hero-btns{display:flex;gap:0.8rem;flex-wrap:wrap;margin-top:0.4rem}
+.btn-primary{background:var(--ink);color:#fff;padding:0.75rem 1.6rem;border-radius:100px;font-size:0.85rem;font-weight:500;text-decoration:none;transition:opacity .2s}
+.btn-primary:hover{opacity:0.82}
+.btn-outline{display:flex;align-items:center;gap:0.5rem;background:transparent;color:var(--ink);padding:0.75rem 1.6rem;border-radius:100px;font-size:0.85rem;font-weight:500;text-decoration:none;border:1px solid var(--border);transition:background .2s}
+.btn-outline:hover{background:var(--bg2)}
+.btn-outline svg{width:17px;height:17px}
+.hero-stats{display:flex;gap:2rem;padding-top:1rem;border-top:1px solid var(--border);margin-top:0.5rem}
+.stat-item{display:flex;flex-direction:column;gap:0.2rem}
+.stat-num{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;letter-spacing:-1px}
+.stat-label{font-size:0.75rem;color:var(--ink3);font-weight:400;letter-spacing:0.5px}
+
+.hero-right{background:var(--bg2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;position:relative;overflow:hidden;padding:3rem 2rem}
+.avatar-wrap{width:180px;height:180px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;flex-shrink:0}
+.avatar-initials{font-family:'Syne',sans-serif;font-size:4rem;font-weight:800;color:#fff;letter-spacing:-2px}
+.deco-ring{position:absolute;border-radius:50%;border:1.5px dashed rgba(0,0,0,0.08)}
+.info-cards{display:flex;flex-direction:column;gap:0.8rem;width:100%;z-index:1}
+.info-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:0.8rem 1rem;display:flex;align-items:center;gap:0.8rem}
+.info-card-icon{font-size:1.1rem}
+.info-card-text{font-size:0.82rem;color:var(--ink2);font-weight:400}
+.info-card-text strong{display:block;color:var(--ink);font-weight:500;font-size:0.85rem}
+
+/* SECTIONS */
+.section{padding:5rem 3.5rem}
+.section-header{display:flex;align-items:baseline;gap:1rem;margin-bottom:3rem}
+.section-num{font-family:'Syne',sans-serif;font-size:4rem;font-weight:800;color:var(--bg2);line-height:1;flex-shrink:0}
+.section-title{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:700;letter-spacing:-0.5px}
+.section-line{flex:1;height:1px;background:var(--border)}
+
+/* SKILLS */
+.skills-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+.skill-group{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem}
+.skill-group-title{font-family:'Syne',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:1rem}
+.skill-tags{display:flex;flex-wrap:wrap;gap:0.5rem}
+.skill-tag{padding:0.35rem 0.8rem;border-radius:100px;font-size:0.78rem;font-weight:500;color:var(--ink2);background:var(--bg2);border:1px solid var(--border)}
+
+/* EXPERIENCE */
+.timeline{display:flex;flex-direction:column;gap:0}
+.timeline-item{display:grid;grid-template-columns:200px 1fr;gap:2rem;padding:2rem 0;border-bottom:1px solid var(--border)}
+.timeline-item:last-child{border-bottom:none}
+.timeline-date{font-size:0.78rem;color:var(--ink3);font-weight:400;padding-top:0.2rem;line-height:1.5}
+.timeline-content{}
+.timeline-role{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:0.2rem}
+.timeline-org{font-size:0.85rem;color:var(--ink2);font-weight:500;margin-bottom:0.8rem}
+.timeline-org a{color:var(--ink2);text-decoration:none}
+.timeline-org a:hover{color:var(--ink);text-decoration:underline}
+.timeline-bullets{list-style:none;display:flex;flex-direction:column;gap:0.4rem}
+.timeline-bullets li{font-size:0.85rem;color:var(--ink2);line-height:1.6;font-weight:300;padding-left:1rem;position:relative}
+.timeline-bullets li::before{content:'→';position:absolute;left:0;color:var(--ink3);font-size:0.75rem;top:0.05rem}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem}
+.project-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:1.8rem;display:flex;flex-direction:column;gap:1rem;transition:transform .2s,border-color .2s;text-decoration:none;color:inherit}
+.project-card:hover{transform:translateY(-4px);border-color:var(--ink)}
+.proj-top{display:flex;justify-content:space-between;align-items:flex-start}
+.proj-num{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--bg2);line-height:1}
+.proj-badge{font-size:0.68rem;font-weight:500;padding:0.25rem 0.65rem;border-radius:100px;background:#dcfce7;color:#166534}
+.proj-badge.web{background:#dbeafe;color:#1e40af}
+.proj-badge.govt{background:#fef3c7;color:#92400e}
+.proj-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem}
+.proj-desc{font-size:0.83rem;color:var(--ink2);line-height:1.65;font-weight:300;flex:1}
+.proj-tags{display:flex;gap:0.4rem;flex-wrap:wrap}
+.proj-tag{font-size:0.7rem;font-weight:500;background:var(--bg2);padding:0.25rem 0.6rem;border-radius:4px;color:var(--ink2)}
+.proj-link{display:flex;align-items:center;gap:0.35rem;font-size:0.78rem;font-weight:500;color:var(--ink);text-decoration:none;border-top:1px solid var(--border);padding-top:0.8rem;margin-top:auto}
+.proj-link svg{width:13px;height:13px}
+
+/* GITHUB BANNER */
+.gh-banner{margin:0 3.5rem 4rem;background:var(--ink);color:#fff;border-radius:var(--r);padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.gh-banner-left h3{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:0.4rem;letter-spacing:-0.5px}
+.gh-banner-left p{font-size:0.88rem;opacity:0.55;font-weight:300}
+.gh-banner-right{display:flex;flex-direction:column;align-items:flex-end;gap:0.8rem}
+.btn-gh-white{display:flex;align-items:center;gap:0.6rem;background:#fff;color:var(--ink);padding:0.75rem 1.6rem;border-radius:100px;font-size:0.85rem;font-weight:600;text-decoration:none;white-space:nowrap;transition:opacity .2s}
+.btn-gh-white:hover{opacity:0.88}
+.btn-gh-white svg{width:18px;height:18px}
+.gh-url{font-size:0.78rem;opacity:0.45;font-weight:300}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+.contact-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;display:flex;flex-direction:column;gap:0.5rem}
+.contact-label{font-size:0.72rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3)}
+.contact-value{font-size:0.9rem;font-weight:500;color:var(--ink);text-decoration:none}
+.contact-value:hover{text-decoration:underline}
+
+/* FOOTER */
+footer{text-align:center;padding:2.5rem;border-top:1px solid var(--border);font-size:0.78rem;color:var(--ink3);display:flex;justify-content:center;align-items:center;gap:2rem;flex-wrap:wrap}
+.footer-link{color:var(--ink3);text-decoration:none}
+.footer-link:hover{color:var(--ink)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .hero-left{padding:3rem 1.5rem}
+  .section{padding:3rem 1.5rem}
+  .gh-banner{margin:0 1.5rem 3rem;padding:1.8rem}
+  .timeline-item{grid-template-columns:1fr;gap:0.5rem}
+  .timeline-date{padding-top:0}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Innocent P.</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://github.com/Prinno" class="nav-gh" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.92.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.745 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+    GitHub
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="about">
+  <div class="hero-left">
+    <span class="hero-tag"><span class="dot"></span> Available for hire</span>
+    <h1>Innocent<br/>Philibert<br/><em>Paschalio</em></h1>
+    <p class="hero-subtitle">
+      <span>ICT Officer</span> · Full Stack Developer · Systems Administrator
+    </p>
+    <p class="hero-desc">Results-driven ICT professional with over 4 years of experience delivering end-to-end digital solutions for government agencies, academic institutions, and private enterprises across Tanzania.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">View my work</a>
+      <a href="https://github.com/Prinno" class="btn-outline" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.92.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.745 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        github.com/Prinno
+      </a>
+      <a href="mailto:innocentphilbert39@gmail.com" class="btn-outline">✉ Email me</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-num">4+</span><span class="stat-label">Years Experience</span></div>
+      <div class="stat-item"><span class="stat-num">6</span><span class="stat-label">Live Projects</span></div>
+      <div class="stat-item"><span class="stat-num">3</span><span class="stat-label">Apps on Play Store</span></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="deco-ring" style="width:500px;height:500px;top:-80px;right:-80px"></div>
+    <div class="deco-ring" style="width:320px;height:320px;top:40px;right:50px"></div>
+    <div class="avatar-wrap">
+      <span class="avatar-initials">IP</span>
+    </div>
+    <div class="info-cards">
+      <div class="info-card">
+        <span class="info-card-icon">📍</span>
+        <div class="info-card-text"><strong>Location</strong>Mwanza, Tanzania</div>
+      </div>
+      <div class="info-card">
+        <span class="info-card-icon">🎓</span>
+        <div class="info-card-text"><strong>Education</strong>BSc. Information Systems – UDOM</div>
+      </div>
+      <div class="info-card">
+        <span class="info-card-icon">💬</span>
+        <div class="info-card-text"><strong>Languages</strong>English (Professional) · Kiswahili (Native)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-container">
+    <div class="skill-group">
+      <div class="skill-group-title">Languages</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span><span class="skill-tag">Dart</span><span class="skill-tag">JavaScript</span><span class="skill-tag">PHP</span><span class="skill-tag">C++</span><span class="skill-tag">Java</span><span class="skill-tag">HTML/CSS</span><span class="skill-tag">SQL</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Frameworks & Tools</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Django</span><span class="skill-tag">Flutter</span><span class="skill-tag">Tailwind CSS</span><span class="skill-tag">Angular</span><span class="skill-tag">REST APIs</span><span class="skill-tag">Git</span><span class="skill-tag">Android Studio</span><span class="skill-tag">VS Code</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Databases</div>
+      <div class="skill-tags">
+        <span class="skill-tag">MySQL</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">SQLite</span><span class="skill-tag">SQL Server</span><span class="skill-tag">MongoDB</span><span class="skill-tag">Oracle</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Systems & Network</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Windows Server</span><span class="skill-tag">Router & Switch</span><span class="skill-tag">Firewall & VPN</span><span class="skill-tag">Domain Management</span><span class="skill-tag">Cloud Hosting</span><span class="skill-tag">IT Support</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience" style="background:var(--bg3);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">Aug 2025 – Oct 2025</div>
+      <div class="timeline-content">
+        <div class="timeline-role">ICT Officer & HR Support</div>
+        <div class="timeline-org">A-Class Marble Tanzania Ltd – Morogoro</div>
+        <ul class="timeline-bullets">
+          <li>Managed all ICT operations including hardware maintenance, software support, and user assistance.</li>
+          <li>Implemented a digital attendance recording system, improving HR accuracy and efficiency.</li>
+          <li>Supported local labour recruitment processes and maintained digital personnel records.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Jul 2024 – Jul 2025</div>
+      <div class="timeline-content">
+        <div class="timeline-role">ICT Officer & Operations Manager</div>
+        <div class="timeline-org">Gunewe Group of Companies (GGCL) – <a href="https://ggcltz.com" target="_blank">ggcltz.com</a></div>
+        <ul class="timeline-bullets">
+          <li>Designed and developed the company's corporate website using responsive web technologies.</li>
+          <li>Managed day-to-day ICT operations, network infrastructure, and end-user support.</li>
+          <li>Oversaw operational workflows and coordinated cross-departmental ICT initiatives.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Apr 2022 – Jul 2023</div>
+      <div class="timeline-content">
+        <div class="timeline-role">ICT Officer & Student Registration Officer</div>
+        <div class="timeline-org">Mount Zion University – <a href="https://mzuedu.ac" target="_blank">mzuedu.ac</a></div>
+        <ul class="timeline-bullets">
+          <li>Designed and developed the university's official website using modern responsive web technologies.</li>
+          <li>Administered university information systems and managed student registration databases.</li>
+          <li>Provided ICT support to staff and students, ensuring consistent system uptime.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Jun 2021 – Dec 2021</div>
+      <div class="timeline-content">
+        <div class="timeline-role">Field Enumerator – Digital Data Collection</div>
+        <div class="timeline-org">Digital Mobile Africa (DMA) & CRAFT</div>
+        <ul class="timeline-bullets">
+          <li>Conducted structured digital farmer profiling using EpiCollect5 mobile data collection platform.</li>
+          <li>Gathered accurate field data and delivered community awareness programmes to rural stakeholders.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Sep 2020 – Mar 2021</div>
+      <div class="timeline-content">
+        <div class="timeline-role">Assistant ICT Officer</div>
+        <div class="timeline-org">Prime Minister's Office – PMO-LYED, Dodoma</div>
+        <ul class="timeline-bullets">
+          <li>Developed and deployed an internal staff portal using Django Framework; managed domain accounts and Windows Server hosting.</li>
+          <li>Configured and maintained routers, switches, and network infrastructure.</li>
+          <li>Built a youth database management system to digitize and centralize beneficiary records.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Key Projects</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="proj-top">
+        <div class="proj-num">01</div>
+        <span class="proj-badge">Play Store</span>
+      </div>
+      <div class="proj-title">Kingdom Swahili Bible App</div>
+      <p class="proj-desc">Independently designed and developed a full-featured Swahili Bible mobile application using Flutter/Dart. Currently live on Google Play Store with active users.</p>
+      <div class="proj-tags"><span class="proj-tag">Flutter</span><span class="proj-tag">Dart</span><span class="proj-tag">Mobile</span></div>
+      <a href="https://github.com/Prinno" class="proj-link" target="_blank">View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+    </div>
+    <div class="project-card">
+      <div class="proj-top">
+        <div class="proj-num">02</div>
+        <span class="proj-badge">Play Store</span>
+      </div>
+      <div class="proj-title">Mpanzi Ministry App & Website</div>
+      <p class="proj-desc">Built a full stack mobile application and companion website for a Christian ministry organization. The app is live on Google Play Store; website is fully operational.</p>
+      <div class="proj-tags"><span class="proj-tag">Flutter</span><span class="proj-tag">Django</span><span class="proj-tag">Full Stack</span></div>
+      <a href="https://github.com/Prinno" class="proj-link" target="_blank">View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+    </div>
+    <div class="project-card">
+      <div class="proj-top">
+        <div class="proj-num">03</div>
+        <span class="proj-badge web">Live Website</span>
+      </div>
+      <div class="proj-title">GGCL Corporate Website</div>
+      <p class="proj-desc">Developed and deployed the corporate website for Gunewe Group of Companies Limited using responsive web technologies. Currently live and maintained.</p>
+      <div class="proj-tags"><span class="proj-tag">HTML/CSS</span><span class="proj-tag">JavaScript</span><span class="proj-tag">Responsive</span></div>
+      <a href="https://ggcltz.com" class="proj-link" target="_blank">Visit ggcltz.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+    </div>
+    <div class="project-card">
+      <div class="proj-top">
+        <div class="proj-num">04</div>
+        <span class="proj-badge web">Live Website</span>
+      </div>
+      <div class="proj-title">Mount Zion University Website</div>
+      <p class="proj-desc">Designed and developed the university's official website with responsive design, content management features, and student information integration.</p>
+      <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">Python</span><span class="proj-tag">CMS</span></div>
+      <a href="https://mzuedu.ac" class="proj-link" target="_blank">Visit mzuedu.ac <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+    </div>
+    <div class="project-card">
+      <div class="proj-top">
+        <div class="proj-num">05</div>
+        <span class="proj-badge govt">Government</span>
+      </div>
+      <div class="proj-title">Internal Staff Portal – PMO-LYED</div>
+      <p class="proj-desc">Backend development and database management for a government staff portal used by the Prime Minister's Office, supporting digital record-keeping and HR workflows.</p>
+      <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">Windows Server</span><span class="proj-tag">Database</span></div>
+      <a href="https://github.com/Prinno" class="proj-link" target="_blank">View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+    </div>
+    <div class="project-card">
+      <div class="proj-top">
+        <div class="proj-num">06</div>
+        <span class="proj-badge">Mobile App</span>
+      </div>
+      <div class="proj-title">Housekeeper Mobile App</div>
+      <p class="proj-desc">Cross-platform Flutter application with REST API integration, data management, and a modern mobile UI developed for residential services management.</p>
+      <div class="proj-tags"><span class="proj-tag">Flutter</span><span class="proj-tag">REST API</span><span class="proj-tag">Cross-platform</span></div>
+      <a href="https://github.com/Prinno" class="proj-link" target="_blank">View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- GITHUB BANNER -->
+<div class="gh-banner">
+  <div class="gh-banner-left">
+    <h3>See all my code on GitHub</h3>
+    <p>Scripts, mobile apps, web projects and open source contributions</p>
+  </div>
+  <div class="gh-banner-right">
+    <a href="https://github.com/Prinno" class="btn-gh-white" target="_blank">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.92.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.745 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      github.com/Prinno
+    </a>
+    <span class="gh-url">github.com/Prinno</span>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="section" id="contact" style="background:var(--bg3);border-top:1px solid var(--border)">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Contact</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <span class="contact-label">Email</span>
+      <a href="mailto:innocentphilbert39@gmail.com" class="contact-value">innocentphilbert39@gmail.com</a>
+    </div>
+    <div class="contact-card">
+      <span class="contact-label">Phone</span>
+      <a href="tel:+255688807277" class="contact-value">+255 688 807 277</a>
+    </div>
+    <div class="contact-card">
+      <span class="contact-label">Location</span>
+      <span class="contact-value">Mwanza, Tanzania</span>
+    </div>
+    <div class="contact-card">
+      <span class="contact-label">GitHub</span>
+      <a href="https://github.com/Prinno" class="contact-value" target="_blank">github.com/Prinno</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Innocent Philibert Paschalio</span>
+  <a href="https://github.com/Prinno" class="footer-link" target="_blank">GitHub</a>
+  <a href="mailto:innocentphilbert39@gmail.com" class="footer-link">Email</a>
+  <span>Mwanza, Tanzania</span>
+</footer>
+
+</body>
+</html>
